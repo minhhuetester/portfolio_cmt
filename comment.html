@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anonymous comment</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .comment-form {
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+      }
+      .comment-form textarea {
+        width:97%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #d2cece;
+        border-radius: 4px;
+        resize: vertical;
+        min-height: 100px;
+      }
+      .comment-form button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .comment-form button:hover {
+        background-color: #45a049;
+      }
+      .comments-list {
+        margin-top: 20px;
+      }
+      .comment {
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+      }
+      .comment:last-child {
+        border-bottom: none;
+      }
+      .comment-content {
+        margin: 10px 0;
+      }
+      .comment-meta {
+        color: #666;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Anonymous comment</h1>
+
+    <div class="comment-form">
+      <h2>Write your comment in here...</h2>
+      <form id="commentForm">
+        <div>
+          <textarea
+            id="commentContent"
+            placeholder="Nội dung bình luận của bạn"
+            required
+          ></textarea>
+        </div>
+        <button type="submit">Gửi bình luận</button>
+      </form>
+    </div>
+
+    <div class="comments-list" id="commentsList">
+      <h2>Bình luận</h2>
+      <!-- Comments will be loaded here -->
+    </div>
+
+    <script src="comment.js"></script>
+  </body>
+</html>
