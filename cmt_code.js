@@ -12,7 +12,8 @@ async function loadComments() {
             },
         });
         const data = await response.json();
-        displayComments(data);
+        const displayData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        displayComments(displayData);
     } catch (error) {
         console.error('Error loading comments:', error);
         alert('Error loading comments');
@@ -38,7 +39,7 @@ function displayComments(comments) {
     });
 }
 // Submit comment
-async function submitComment() {
+async function submitComment(content) {
     try {
         const response = await fetch(API_URL, {
             method: 'POST',
@@ -46,12 +47,12 @@ async function submitComment() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                content: commentForm.content.value,
-                createdAt: Date.now().toLocaleString(),
+                content: content,
+                createdAt: new Date().toISOString(),
             }),
         });
-        const data = await response.json();
-        displayComments(data);
+        document.querySelector("#commentContent").value=""
+        loadComments()
     } catch (error) {
         console.error('Error submitting comment:', error);
         alert('Error submitting comment');
