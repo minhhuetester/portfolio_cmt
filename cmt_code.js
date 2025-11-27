@@ -57,3 +57,12 @@ async function submitComment() {
         alert('Error submitting comment');
     }
 }
+// Event listener for form submission
+commentForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+   const content = document.getElementById('commentContent').value.trim();
+   if (content) {
+    await submitComment(content);
+   }
+});
+document.addEventListener('DOMContentLoaded', loadComments);
